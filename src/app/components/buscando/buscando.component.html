@@ -1,7 +1,7 @@
 <h1>Buscando: <small>{{ termino }}</small></h1>
 <hr>
 
-<div *ngIf="pintar.length == 0" class="row animated fadeIn fast">
+<div *ngIf="heroes.length == 0" class="row animated fadeIn fast">
     <div class="col-md-12">
         <div class="alert alert-info" role="alert">
             <strong>No existen resultados con el término: {{ termino }}</strong>
@@ -10,23 +10,6 @@
 </div>
 
 <div class="card-columns">
-
-    <div class="card animated fadeIn fast" *ngFor="let heroe of pintar">
-        <img [src]="heroe.img" class="card-img-top" [alt]="heroe.nombre">
-        <div class="card-body">
-            <h5 class="card-title">{{ heroe.nombre }}</h5>
-            <p class="card-text"> {{ heroe.bio }}</p>
-            <p class="card-text"><small class="text-muted">{{ heroe.aparicion }}</small></p>
-
-            <button (click)="verHeroe(heroe.idx)" type="button" class="btn btn-outline-primary btn-block">
-                Ver más...
-            </button>
-            <!--De esta forma tambíen fucnionaría la redirección
-                <a [routerLink]="['/heroe',i]" class="btn btn-outline-primary">Ver más link...</a>-->
-        </div>
-    </div>
-
-
-
-
+    <!-- Le estoy pasando al componente la variable foo de mi ngFor con el nombre de heroe y le estoy pasando su foo.idx con el nombre de index para que lo utilice. Antes de eso le he dicho que esas variables pueden venir desde fuera-->
+    <app-heroe-tarjeta (heroeSeleccionado)="verHeroe($event)" [heroe]="foo" [index]="foo.idx" *ngFor="let foo of heroes"></app-heroe-tarjeta>
 </div>

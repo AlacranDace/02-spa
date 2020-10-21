@@ -10,7 +10,7 @@ import { HeroesService, Heroe } from '../../servicios/heroes.service';
 export class BuscandoComponent implements OnInit {
 
   heroes: Heroe[] = [];
-  pintar: Heroe[] = [];
+  // pintar: Heroe[] = [];
   termino = '';
 
   constructor(private router: Router,
@@ -20,7 +20,8 @@ export class BuscandoComponent implements OnInit {
       this.heroes = this._heroesService.getHeroes();
       this.activatedRoute.params.subscribe ( params => {
       this.termino = params['termino'];
-      this.pintar = this._heroesService.buscarHeroes(this.termino);
+      this.heroes = this._heroesService.buscarHeroes(this.termino);
+      console.log(this.heroes);
       });
 
      }

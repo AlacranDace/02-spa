@@ -17,7 +17,7 @@ export class HeroesComponent implements OnInit {
 
   ngOnInit(): void {
     this.heroes = this._heroesService.getHeroes();
-    // console.log(this.heroes);
+     console.log(this.heroes);
   }
 
   // Utilizamos el elemento router para hacer que se navegue a un path en concreto

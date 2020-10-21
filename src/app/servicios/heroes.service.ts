@@ -59,11 +59,15 @@ export class HeroesService {
     }
 
     getHeroes(): Heroe[]{
-        return this.heroes;
+      for ( let i = 0; i < this.heroes.length; i++ ) {
+        let heroe = this.heroes[i];
+        heroe.idx = i;
+      }
+      return this.heroes;
     }
 
     getHeroe( id:number ): Heroe {
-        return this.heroes[id];
+      return this.heroes[id];
     }
 
     buscarHeroes( termino: string ) {
