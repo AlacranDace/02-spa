@@ -30,7 +30,7 @@ export class BuscandoComponent implements OnInit {
 
   // Utilizamos el elemento router para hacer que se navegue a un path en concreto
   verHeroe( idx: number ) {
-   this.router.navigate(angular-2-fernando-herrera ['/heroe', idx] );
+   this.router.navigate( ['/heroe', idx] );
    console.log(idx);
   }
 }
